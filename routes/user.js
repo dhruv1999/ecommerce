@@ -27,6 +27,8 @@ router.get('/signup', function (req, res, next) {
 		csrfToken: req.csrfToken(),
 		messages: messages,
 		hasErrors: messages.length > 0
+		
+		
 	})
 })
 
