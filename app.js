@@ -21,7 +21,7 @@ require('./config/passport')
 
 // view engine setup
 
-app.engine('.hbs', expressHbs({ defaultLayout: 'layout', extname: '.hbs' }))
+app.engine('.hbs', expressHbs({ defaultLayout: 'layout2', extname: '.hbs' }))
 //app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', '.hbs')
 

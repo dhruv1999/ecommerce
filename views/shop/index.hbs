@@ -5,18 +5,21 @@
 		</div>
 	</div>
 </div>
+<br>
+<br>
 {{# each products }}
 	<div class="row">
 		{{# each this }}
 			<div class="col-sm-6 col-md-4">
-				<div class="thumbnail">
-					<img src="{{ this.imagePath }}" alt="..." class="img-responsive">
+				<br>
+				<div class="img-thumbnail">
+					<img src="{{ this.imagePath }}" alt="..." class="img-fluid">
 					<div class="caption">
 						<h3>{{ this.title }}</h3>
 						<p class="description">{{ this.description }}</p>
 						<div class="clearfix">
 							<div class="price pull-left">${{ this.price }}</div>
-							<a href="/add-to-cart/{{this._id}}" class="btn btn-info pull-right" role="button">Add to
+							<a href="/add-to-cart/{{this._id}}" class="btn btn-success pull-right" role="button">Add to
 								Shopping Cart</a>
 						</div>
 					</div>
