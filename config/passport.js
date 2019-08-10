@@ -2,6 +2,8 @@ var passport = require('passport')
 var User = require('../models/user')
 var LocalStrategy = require('passport-local').Strategy
 const { sendWelcomeEmail, sendCancelEmail } = require('../models/email')
+const {sendWelcomeSms}=require('../models/sms')
+
 
 passport.serializeUser(function (user, done) {
 	done(null, user.id)
@@ -16,12 +18,21 @@ passport.deserializeUser(function (id, done) {
 passport.use(
 	'local.signup',
 	new LocalStrategy(
-		{
+		{	
 			usernameField: 'email',
 			passwordField: 'password',
 			passReqToCallback: true
 		},
-		function (req, email, password, done) {
+		function (req,email, password, done) {
+			req
+				.checkBody('name', 'Invalid password')
+				.notEmpty()
+				.isLength({ min: 2 })
+
+			req
+				.checkBody('mobile', 'Invalid number')
+				.notEmpty()
+				.isLength({ min: 10 })	
 			req
 				.checkBody('email', 'Invalid email')
 				.notEmpty()
@@ -30,6 +41,8 @@ passport.use(
 				.checkBody('password', 'Invalid password')
 				.notEmpty()
 				.isLength({ min: 4 })
+
+					
 			var errors = req.validationErrors()
 			if (errors) {
 				var messages = []
@@ -46,16 +59,20 @@ passport.use(
 					return done(null, false, { message: 'Email is already in use.' })
 				}
 				var newUser = new User()
+
+				newUser.name=req.body.name
+				newUser.mobile=req.body.mobile
 				newUser.email = email
 				newUser.password = newUser.encryptPassword(password)
 				newUser.save(function (err, result) {
 					if (err) {
 						return done(err)
 					}
-					sendWelcomeEmail(newUser.email)
-
+					sendWelcomeEmail(newUser.email,newUser.name)
+					sendWelcomeSms(newUser.name,newUser.mobile)
 					return done(null, newUser)
 				})
+				console.log(newUser);
 			})
 		}
 	)
