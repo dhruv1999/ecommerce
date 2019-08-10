@@ -6,8 +6,8 @@ var products = [
 	new Product({
 		imagePath:
 			'https://upload.wikimedia.org/wikipedia/en/5/5e/Gothiccover.png',
-		title: 'Gothic Video Game',
-		description: 'Awesome Game!!!!',
+		title: 'Nike ',
+		description: 'Nike Airmax',
 		price: 10
 	}),
 	new Product({
