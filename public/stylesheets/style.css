@@ -5,3 +5,13 @@ body{
 font-family: 'Montserrat', sans-serif;
 }
 
+.carousel,.item,.active{
+    height:100%;
+  }
+  @media (min-width: 576px)
+  {
+ .d-block{
+    height:500px;
+    width:1100px;
+ } 
+}
