@@ -19,7 +19,7 @@ var products = [
 	}),
 	new Product({
 		imagePath:
-			"https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+			"https://sneakernews.com/wp-content/uploads/2019/05/adidas-yeezy-350-v2-black-fu9006-1.jpg",
 		title: 'Nike',
 		description: "Nike for Indoors",
 		price: 40
