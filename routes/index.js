@@ -40,4 +40,72 @@ router.get('/shopping-cart', function(req, res, next) {
 	 res.render('shop/shopping-cart', {products: cart.generateArray(), totalPrice: cart.totalPrice});
  });
 
+
+ router.get('/products/:category', (req, res, next) => {
+	const category = req.params.category;
+	Product.find({ category: category })
+	  .then(products => {
+		let productChunks = [];
+		let chunkSize = 3;
+		for (let i = 0; i < products.length; i += chunkSize) {
+		  productChunks.push(products.slice(i, i + chunkSize));
+		}
+		res.render('shop/index', {
+		  category: category,
+		  title: 'Shopping Cart',
+		  products: productChunks
+		});
+	  })
+	  .catch(err => res.json({ msg: 'There are no products of this category' }));
+  });
+
+
+
+  router.post('/product/search', (req, res, next) => {
+	query = req.body.query;
+	// Query Builder need to be updated
+	/*
+		Search for Full Text
+		.find({ $text: { $search: query } })
+	*/
+  
+	Product
+	  .find({ $or: [{ name: { $regex: new RegExp(query), "$options": "i" } }, { category: { $regex: new RegExp(query), "$options": "i" } }, { description: { $regex: new RegExp(query), "$options": "i" } }] })
+	  .then(product => {
+		return res.json({ products: product, success: true })
+	  })
+	  .catch(err => {
+		return res.json({ msg: "Unable to fetch the products", err: true });
+	  });
+  });
+
+  router.get('/product',(req,res,next)=>{
+	  res.render('shop/product')
+  })
+
+
+
+  router.get('/product/:id', (req, res, next) => {
+	Product.findOne({ _id: req.params.id })
+	  .then(product => {
+  
+		// Check for the bestseller
+  
+		// Check for the new
+  
+		// Check for the Original Price
+  
+		// Check for the Latest Price
+  
+		// Check for the Discount
+  
+		// return res.json({ product });
+		res.render('shop/product', {
+		  product: product,
+		  title: 'Shopping Cart',
+		  
+		});
+	  })
+	  .catch(err => console.log(err));
+  });
 module.exports = router
