@@ -41,3 +41,25 @@ font-family: 'Montserrat', sans-serif;
 
 
 
+
+.parallax {
+    /* The image used */
+    background-image: url("../images/bgimg5.jpg");
+  
+    /* Set a specific height */
+    min-height: 200px; 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.map{
+
+padding-right: 100px;
+
+
+
+}
+    
