@@ -70,7 +70,7 @@ router.get('/shopping-cart', function(req, res, next) {
 	*/
   
 	Product
-	  .find({ $or: [{ name: { $regex: new RegExp(query), "$options": "i" } }, { category: { $regex: new RegExp(query), "$options": "i" } }, { description: { $regex: new RegExp(query), "$options": "i" } }] })
+	  .find({ $or: [{ name: { $regex: new RegExp(query), "$options": "i" } }, { category: { $regex: new RegExp(query), "$options": "i" } }, { description: { $regex: new RegExp(query), "$options": "i" } },{ title: { $regex: new RegExp(query), "$options": "i" } }] })
 	  .then(product => {
 		return res.json({ products: product, success: true })
 	  })

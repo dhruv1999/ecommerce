@@ -26,6 +26,13 @@ font-family: 'Montserrat', sans-serif;
   height: 180px;
 }
 
+.img-fluid:hover{
+	-ms-transform: scale(1.0); /* IE 9 */
+	-webkit-transform: scale(1.0); /* Safari 3-8 */
+	transform: scale(1.175); 
+}
+
+
 
 }
 
@@ -69,4 +76,10 @@ padding-right: 100px;
 	width:400px;
 	height: 200px;
 	
+}
+
+.img-thumbnail2:hover {
+  -ms-transform: scale(1.0); /* IE 9 */
+  -webkit-transform: scale(1.0); /* Safari 3-8 */
+  transform: scale(1.05); 
 }
