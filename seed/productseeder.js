@@ -9,7 +9,7 @@ var products = [
 		title: 'Nike ',
 		description: 'Nike Airmax',
 		price: 10,
-		category:'tshirt'
+		category:'shoes'
 	}),
 	new Product({
 		imagePath:
@@ -17,31 +17,39 @@ var products = [
 		title: 'Adidas',
 		description: 'Best for running',
 		price: 20,
-		category:'shirt'
+		category:'shoes'
 	}),
 	new Product({
 		imagePath:
-			"https://sneakernews.com/wp-content/uploads/2019/05/adidas-yeezy-350-v2-black-fu9006-1.jpg",
-		title: 'Nike',
-		description: "Nike for Indoors",
+			"https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+		title: 'Jeans',
+		description: "Jeans",
 		price: 40,
 		category:'jeans'
 	}),
 	new Product({
 		imagePath:
-			'https://www.flightclub.com/media/catalog/product/cache/1/image/1600x1140/9df78eab33525d08d6e5fb8d27136e95/1/3/136354_01.jpg',
-		title: 'Yeezy',
-		description: 'Best for Fashion',
+			'http://images5.fanpop.com/image/photos/25400000/A-Calvin-Klein-Dress-Shirt-dress-shirts-25494139-800-854.jpg',
+		title: 'Shirt',
+		description: 'Formal Shirt',
 		price: 15,
-		category:'trousers'
+		category:'shirt'
 	}),
 	new Product({
 		imagePath:
-			'https://dsw.scene7.com/is/image/DSWShoes/404995_001_ss_01?$pdp-image$',
-		title: 'Vans',
-		description: 'Best canvas shoes',
+			'https://rendering.documents.cimpress.io/v1/vp/preview?width=690&height=690&quality=80&scene=https://scenes.documents.cimpress.io/v1/scenes/1cce36d1-28e0-4ef5-9df9-6c2c1a756ae9',
+		title: 'White T-shirt',
+		description: 'Casual T-Shirt',
 		price: 50,
-		category:'formals'
+		category:'tshirt'
+	}),
+	new Product({
+		imagePath:
+			'http://assets.myntassets.com/assets/images/7149919/2018/9/27/68b78ee2-88f1-4700-87fa-2ceb40a292661538045112439-INVICTUS-Men-Black-Slim-Fit-Solid-Formal-Trousers-3491538045-1.jpg',
+		title: 'Trouser',
+		description: 'Formal Trouser',
+		price: 50,
+		category:'trouser'
 	})
 ]
 

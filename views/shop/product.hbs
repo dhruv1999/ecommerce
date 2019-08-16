@@ -11,8 +11,35 @@
 				<h1>Price:₹{{ product.price }}</h1>
 				
 				<h2>{{product.description}}</h2>
-		
+
 			</div>
+			<div class="text-left">
+                        <button class="btn btn-dark btn-md my-0 p" id="{{ product._id }}" onclick="addProduct(event);">Add
+                            to cart
+                            <i class="fa fa-shopping-cart ml-1"></i>
+                        </button>
+                    </div>
 		</div>
 	</div>
 </div>
+
+<script>
+
+    function addProduct(e) {
+        e.preventDefault();
+        productId = e.target.id;
+        axios.post("/add-to-cart", { id: productId, _csrf: "{{ csrfToken }}" })
+            .then(res => {
+                if (res.data.success) {
+                    // Updating the Quantity in the Navbar
+                    totalQty = document.getElementById('total-qty');
+                    if (totalQty.innerText == '') {
+                        totalQty.innerText = 1;
+                    } else {
+                        totalQty.innerText = parseInt(totalQty.innerText) + 1;
+                    }
+                }
+            })
+            .catch(err => console.log(err));
+    }
+</script>

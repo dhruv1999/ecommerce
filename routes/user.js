@@ -1,5 +1,6 @@
 var express = require('express')
 var router = express.Router()
+const Order = require('../models/Order');
 
 var csrf = require('csurf')
 var passport = require('passport')

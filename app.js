@@ -11,7 +11,7 @@ var app = express()
 var session = require('express-session')
 var passport = require('passport')
 var flash = require('connect-flash')
-
+const categoryRoutes = require('./routes/category')
 var validator = require('express-validator')
 var MongoStore = require('connect-mongo')(session)
 var bodyParser = require('body-parser')
@@ -54,11 +54,10 @@ app.use(function (req, res, next) {
 
 
 app.use('/user', userRoutes)
+app.use('/categories', categoryRoutes);
 app.use('/', indexRouter)
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
-	next(createError(404))
-})
+
 
 // error handler
 app.use(function (err, req, res, next) {

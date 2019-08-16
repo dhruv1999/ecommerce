@@ -14,13 +14,13 @@ const categories = [
         name: 'shirt'
     }),
     new Category({
-        name: 'trousers'
-    }),
-    new Category({
-        name: 'formals'
+        name: 'trouser'
     }),
     new Category({
         name: 'jeans'
+	}),
+	new Category({
+        name: 'shoes'
     })
 ];
 

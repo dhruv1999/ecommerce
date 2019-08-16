@@ -1,8 +1,10 @@
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:500&display=swap');
 
-body{
+html,body{
 font-family: 'Montserrat', sans-serif;
+max-width: 100%;
+    overflow-x: hidden;
 }
 
 .carousel,.item,.active{
@@ -73,8 +75,8 @@ padding-right: 100px;
 }
 	
 .img-thumbnail2{
-	width:400px;
-	height: 200px;
+	width:500px;
+	height: 400px;
 	
 }
 
@@ -82,4 +84,63 @@ padding-right: 100px;
   -ms-transform: scale(1.0); /* IE 9 */
   -webkit-transform: scale(1.0); /* Safari 3-8 */
   transform: scale(1.05); 
+}
+
+
+.global-container {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: azure;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+.global-container {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: azure;
+}
+
+form {
+	padding-top: 1px;
+	font-size: 15px;
+	margin-top: 1px;
+}
+
+.card-title {
+	font-weight: 500;
+}
+
+.btn {
+	font-size: 16px;
+	font-weight: 300;
+}
+
+.login-form {
+	width: 330px;
+	margin: 20px;
+}
+
+.sign-up {
+	text-align: center;
+	padding-top: 30px;
+}
+
+.avatar {
+	vertical-align: center;
+	width: 150px;
+	height: 150px;
+	border-radius: 500%;
+	align-content: center;
+}
+
+.online{
+	margin-right:40px;
 }
