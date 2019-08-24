@@ -1,0 +1,15 @@
+<div class="row justify-content-center align-items-center mb-4">
+
+    {{#if noErrors}}
+    <div class="alert alert-s">
+        {{sccMsg}}
+    </div>
+    {{/if}}
+
+    {{#if Errors}}
+    <div class="alert alert-d">
+        {{ errMsg }}
+    </div>
+    {{/if}}
+
+</div>

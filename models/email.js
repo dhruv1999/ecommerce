@@ -1,10 +1,8 @@
 const sgMail = require('@sendgrid/mail')
 
-
-
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
-const sendWelcomeEmail = (email,name) => {
+const sendWelcomeEmail = (email, name) => {
 	sgMail.send({
 		to: email,
 		from: 'dhruvparmar160@gmail.com',
@@ -22,8 +20,17 @@ const sendCancelEmail = (email) => {
 	})
 }
 
+const sendOrderEmail = (name, ordername, email) => {
+	sgMail.send({
+		to: email,
+		from: 'dhruvparmar160@gmail.com',
+		subject: 'Your order is successfully placed.',
+		text: `${name},your order for ${ordername} is successfully placed`
+	})
+}
 
 module.exports = {
 	sendWelcomeEmail,
-	sendCancelEmail
+	sendCancelEmail,
+	sendOrderEmail
 }

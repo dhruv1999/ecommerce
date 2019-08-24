@@ -14,9 +14,11 @@
 
 			</div>
 			<div class="text-left">
-                        <button class="btn btn-dark btn-md my-0 p" id="{{ product._id }}" onclick="addProduct(event);">Add
+                        <div class="clearfix">
+								<div class="price pull-left">${{ this.price }}</div>
+								<button id="{{ product._id }}" onclick="addProduct(event)">Add
                             to cart
-                            <i class="fa fa-shopping-cart ml-1"></i>
+                            
                         </button>
                     </div>
 		</div>
@@ -28,7 +30,7 @@
     function addProduct(e) {
         e.preventDefault();
         productId = e.target.id;
-        axios.post("/add-to-cart", { id: productId, _csrf: "{{ csrfToken }}" })
+        axios.post("/add/:id", { id: productId, _csrf: "{{ csrfToken }}" })
             .then(res => {
                 if (res.data.success) {
                     // Updating the Quantity in the Navbar

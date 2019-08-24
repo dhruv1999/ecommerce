@@ -21,6 +21,7 @@
     "express-validator": "^4.3.0",
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
+    "instamojo-nodejs": "0.0.5",
     "mongoose": "^5.6.7",
     "morgan": "~1.9.1",
     "passport": "^0.4.0",

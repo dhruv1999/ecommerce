@@ -25,7 +25,7 @@ passport.use(
 		},
 		function (req,email, password, done) {
 			req
-				.checkBody('name', 'Invalid password')
+				.checkBody('name', 'Invalid name')
 				.notEmpty()
 				.isLength({ min: 2 })
 

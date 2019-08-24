@@ -1,0 +1,43 @@
+<main class="mt-5 pt-4 mb-3">
+    <div class="row justify-content-center align-items-center mb-4">
+        <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Checkout</h3>
+                </div>
+                <div class="card-body">
+                    <h4>Your Total: ₹{{ total }}</h4>
+                    <form action="/checkout-pay" method="POSt" id="checkout-form">
+                        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                        <input type="hidden" name="total" value="{{ total }}">
+                        <input type="hidden" name="purpose" value="TEST">
+
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" placeholder="Name" id="name" class="form-control" name="name" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="text" placeholder="Phone" id="phone" class="form-control" name="phone"
+                                required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" placeholder="Email" id="email" class="form-control" name="email"
+                                required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <textarea placeholder="Address" id="address" class="form-control" name="address" required /></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-success btn-md">Buy Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
