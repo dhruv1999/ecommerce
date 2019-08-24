@@ -10,9 +10,9 @@ const sendWelcomeSms = (name, number) => {
 	})
 }
 
-const sendSuccessOrder = (name, name2, number) => {
+const sendSuccessOrder = (name, ordername, quantity, price, number) => {
 	client.messages.create({
-		body: `${name},your order for ${name2} is successfully placed`,
+		body: `${name},your order for ${ordername}, Quantity-${quantity} for Price-Rs ${price} is successfully placed.`,
 		from: '+13218004066',
 		to: `+91${number}`
 	})

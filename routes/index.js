@@ -270,18 +270,25 @@ router.get('/payment-success', isLoggedIn, (req, res, next) => {
 		paymentRequestId: payment_request_Id
 	})
 	// Unset the session Address, Name, Email and Phone and Also Cart Item
-
+	req.session.name = null
+	req.session.phone = null
+	req.session.address = null
+	req.session.cart = null
 	// Storing the cart object
 	order.save((err, result) => {
 		// Redirect user to the User Profile and Shopping Details Page with the Success message
 		sendSuccessOrder(
 			order.name,
 			Object.values(order.cart.items)[0].item.title,
+			order.cart.totalQty,
+			order.cart.totalPrice,
 			order.phone
 		)
 		sendOrderEmail(
 			order.name,
 			Object.values(order.cart.items)[0].item.title,
+			order.cart.totalQty,
+			order.cart.totalPrice,
 			order.email
 		)
 		var sccMsg = req.flash('success')[0]

@@ -20,12 +20,12 @@ const sendCancelEmail = (email) => {
 	})
 }
 
-const sendOrderEmail = (name, ordername, email) => {
+const sendOrderEmail = (name, ordername, quantity, price, email) => {
 	sgMail.send({
 		to: email,
 		from: 'dhruvparmar160@gmail.com',
 		subject: 'Your order is successfully placed.',
-		text: `${name},your order for ${ordername} is successfully placed`
+		text: `${name},your order for ${ordername}, Quantity:${quantity} for Price:Rs ${price} is successfully placed.`
 	})
 }
 
