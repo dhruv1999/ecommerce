@@ -1,0 +1,54 @@
+
+
+body{
+    margin:0 auto;
+      background-image:url('../images/signupwall.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+      opacity:1;
+      
+    }    
+    .box{
+    width:400px;
+    height:480px;
+    background: #000;
+    margin-top:100px; 
+    margin-left: 350px;
+    opacity: 0.8;
+    text-align: center;
+      border-radius:5px;
+    }
+    
+    .box h1{
+    
+        color:white;
+        text-align: center;
+        font-size: 50px;
+    }
+    
+    input[type="text"],input[type="email"],input[type="password"]{
+     width:300px;
+     height:30px;
+     margin-bottom: 25px;
+     font-size: 15px;
+     border:1px solid black;
+     padding-left: 45px;
+    
+    }
+    
+    .icon{
+        position: absolute;
+        padding-top: 8px;
+        margin-right: 15px;
+        width:45px;
+    }
+     button[type="submit"]{
+          background:green;
+          cursor: pointer;
+          width:150px;
+          height:35px;
+          border: 1px solid black;
+          font-size:20px;
+          color: white;
+       border-radius:20px;
+        } 
