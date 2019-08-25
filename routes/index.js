@@ -209,7 +209,7 @@ router.post('/checkout-pay', isLoggedIn, (req, res, next) => {
 	data.send_email = false
 	data.allow_reapeated_payment = false
 	data.setRedirectUrl(
-		'https://powerful-hollows-13690.herokuapp.com/payment-success'
+		'https://afternoon-cove-98863.herokuapp.com/payment-success'
 	)
 
 	Insta.createPayment(data, (error, response) => {
