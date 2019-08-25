@@ -31,36 +31,34 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(validator())
 
 app.use(cookieParser())
-app.use(session({
-	secret: 'dhruv',
-	resave: false,
-	saveUninitialized: false,
-	store: new MongoStore({ mongooseConnection: mongoose.connection }),
-	cookie: { maxAge: 180 * 60 * 1000 }
-
-}))
-
+app.use(
+	session({
+		secret: 'dhruv',
+		resave: false,
+		saveUninitialized: false,
+		store: new MongoStore({ mongooseConnection: mongoose.connection }),
+		cookie: { maxAge: 180 * 60 * 1000 }
+	})
+)
 
 app.use(flash())
 app.use(passport.initialize())
 app.use(passport.session())
 
 app.use(express.static(path.join(__dirname, 'public')))
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
 	res.locals.login = req.isAuthenticated()
 	res.locals.session = req.session
 	next()
 })
 
-
 app.use('/user', userRoutes)
-app.use('/categories', categoryRoutes);
+app.use('/categories', categoryRoutes)
 app.use('/', indexRouter)
 // catch 404 and forward to error handler
 
-
 // error handler
-app.use(function (err, req, res, next) {
+app.use(function(err, req, res, next) {
 	// set locals, only providing error in development
 	res.locals.message = err.message
 	res.locals.error = req.app.get('env') === 'development' ? err : {}

@@ -102,11 +102,6 @@ router.get('/products/:category', (req, res, next) => {
 
 router.post('/product/search', (req, res, next) => {
 	query = req.body.query
-	// Query Builder need to be updated
-	/*
-		Search for Full Text
-		.find({ $text: { $search: query } })
-	*/
 
 	Product.find({
 		$or: [
@@ -131,17 +126,6 @@ router.get('/product', (req, res, next) => {
 router.get('/product/:id', (req, res, next) => {
 	Product.findOne({ _id: req.params.id })
 		.then((product) => {
-			// Check for the bestseller
-
-			// Check for the new
-
-			// Check for the Original Price
-
-			// Check for the Latest Price
-
-			// Check for the Discount
-
-			// return res.json({ product });
 			res.render('shop/product', {
 				product: product,
 				title: 'Shopping Cart'
@@ -210,12 +194,12 @@ router.get('/checkout', isLoggedIn, (req, res, next) => {
 router.post('/checkout-pay', isLoggedIn, (req, res, next) => {
 	// Insta Mojo Intialization
 	Insta.setKeys(
-		'test_7d1bcb8115a0348a605d91ea3ee',
-		'test_fadbc5315f09559a42086bcc5dc'
+		'9559d80415eedaaa7a775053c16ec7aa',
+		'933fb8b4c1d825beb4899daa09f593ea'
 	)
 	// Initialize Payment Data
 	let data = new Insta.PaymentData()
-	Insta.isSandboxMode(true)
+
 	data.purpose = req.body.purpose
 	data.name = req.body.name
 	data.address = req.body.address
@@ -247,16 +231,9 @@ router.post('/checkout-pay', isLoggedIn, (req, res, next) => {
 	})
 })
 
-/*
-  Redirect URL From the Instamojo to recive the payment ID and 
-  store the cart items with payment success ID in the pyaments 
-  collectein and destroy the cart items and then redirect to 
-  generated invoice page.
-  */
 router.get('/payment-success', isLoggedIn, (req, res, next) => {
 	payment_Id = req.query.payment_id
 	payment_request_Id = req.query.payment_request_id
-	// Getting  all Data from the Payment Gateway
 	req.flash('success', 'Successfully bought the products')
 	// Saving all the data to the Database
 	var order = new Order({
@@ -269,14 +246,12 @@ router.get('/payment-success', isLoggedIn, (req, res, next) => {
 		paymentId: payment_Id,
 		paymentRequestId: payment_request_Id
 	})
-	// Unset the session Address, Name, Email and Phone and Also Cart Item
 	req.session.name = null
 	req.session.phone = null
 	req.session.address = null
 	req.session.cart = null
 	// Storing the cart object
 	order.save((err, result) => {
-		// Redirect user to the User Profile and Shopping Details Page with the Success message
 		sendSuccessOrder(
 			order.name,
 			Object.values(order.cart.items)[0].item.title,
@@ -304,5 +279,5 @@ function isLoggedIn(req, res, next) {
 	}
 	// old Url Field sends the the user to the current page where it was
 	req.session.oldUrl = req.url
-	res.redirect('/user/login')
+	res.redirect('/user/signin')
 }
