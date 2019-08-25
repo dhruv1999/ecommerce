@@ -208,7 +208,9 @@ router.post('/checkout-pay', isLoggedIn, (req, res, next) => {
 	data.amount = req.body.total
 	data.send_email = false
 	data.allow_reapeated_payment = false
-	data.setRedirectUrl('http://localhost:3000/payment-success')
+	data.setRedirectUrl(
+		'https://powerful-hollows-13690.herokuapp.com/payment-success'
+	)
 
 	Insta.createPayment(data, (error, response) => {
 		if (error) {
