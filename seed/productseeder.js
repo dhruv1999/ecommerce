@@ -1,6 +1,9 @@
 var Product = require('../models/product')
 var mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/shopping', { useNewUrlParser: true })
+mongoose.connect(
+	'mongodb+srv://lifestyle19754:life1999@cluster0-cbyu1.mongodb.net/test?retryWrites=true&w=majority',
+	{ useNewUrlParser: true }
+)
 
 var products = [
 	new Product({
@@ -9,7 +12,7 @@ var products = [
 		title: 'Nike ',
 		description: 'Nike Airmax',
 		price: 10,
-		category:'shoes'
+		category: 'shoes'
 	}),
 	new Product({
 		imagePath:
@@ -17,15 +20,15 @@ var products = [
 		title: 'Adidas',
 		description: 'Best for running',
 		price: 20,
-		category:'shoes'
+		category: 'shoes'
 	}),
 	new Product({
 		imagePath:
-			"https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+			'https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
 		title: 'Jeans',
-		description: "Jeans",
+		description: 'Jeans',
 		price: 40,
-		category:'jeans'
+		category: 'jeans'
 	}),
 	new Product({
 		imagePath:
@@ -33,7 +36,7 @@ var products = [
 		title: 'Shirt',
 		description: 'Formal Shirt',
 		price: 15,
-		category:'shirt'
+		category: 'shirt'
 	}),
 	new Product({
 		imagePath:
@@ -41,7 +44,7 @@ var products = [
 		title: 'White T-shirt',
 		description: 'Casual T-Shirt',
 		price: 50,
-		category:'tshirt'
+		category: 'tshirt'
 	}),
 	new Product({
 		imagePath:
@@ -49,10 +52,10 @@ var products = [
 		title: 'Trouser',
 		description: 'Formal Trouser',
 		price: 50,
-		category:'trouser'
+		category: 'trouser'
 	})
 ]
 
-products.forEach(product => {
-    product.save();
-});
+products.forEach((product) => {
+	product.save()
+})

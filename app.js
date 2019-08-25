@@ -16,7 +16,8 @@ var validator = require('express-validator')
 var MongoStore = require('connect-mongo')(session)
 var bodyParser = require('body-parser')
 
-mongoose.connect('mongodb://localhost/shopping', { useNewUrlParser: true })
+mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true })
+
 require('./config/passport')
 
 // view engine setup
