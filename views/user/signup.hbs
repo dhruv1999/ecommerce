@@ -1,32 +1,49 @@
-<div class="row justify-content-center align-items-center" id="signup">
-	<div class="col-md-4 col-md-offset-4" id="sign">
-		<h1>Sign Up</h1>
-		{{#if hasErrors}}
+
+
+<html>
+
+	<head>
+		
+		<link rel='stylesheet' href='/stylesheets/signup.css' />
+    
+	</head>
+
+<body>
+
+	
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+
+<body>
+
+<div class="box">
+    <br><h1>SIGN-UP</h1><br>
+	{{#if hasErrors}}
 			<div class="alert alert-danger">
 				{{# each messages }}
 					<p>{{this}}</p>
 					{{/each}}
 			</div>
 		{{/if}}
-		<form action="/user/signup" method="post">
-			<div class="form-group">
-				<label for="name">Name</label>
-				<input type="text" id="name" name="name" class="form-control">
-			</div>
-			<div class="form-group">
-				<label for="mobile">Mobile No.</label>
-				<input type="number" id="mobile" name="mobile" class="form-control">
-			</div>
-			<div class="form-group">
-				<label for="email">E-Mail</label>
-				<input type="text" id="email" name="email" class="form-control">
-			</div>
-			<div class="form-group">
-				<label for="password">Password</label>
-				<input type="password" id="password" name="password" class="form-control">
-			</div>
-			<input type="hidden" name="_csrf" value="{{ csrfToken }}">
-			<button type="submit" class="btn btn-outline-primary">Sign Up</button>
-		</form>
-	</div>
+<form action="/user/signup" method="post">    
+<i class="fa fa-user icon" aria-hidden="true"></i>
+  <input type="text" id="name" name="name" placeholder=" Enter your name"><br>
+<i class="fa fa-phone icon" aria-hidden="true"></i>
+<input type="text" placeholder=" Enter your phone number"  id="mobile" name="mobile"><br/>
+<i class="fa fa-envelope icon" aria-hidden="true"></i>
+<input type="email" placeholder="  Enter your Email"  id="email" name="email"><br/>
+<i class="fa fa-lock icon" aria-hidden="true"></i>
+<input type="password" type="password" id="password" name="password" placeholder="Enter your password"><br/>
+<input type="hidden" name="_csrf" value="{{ csrfToken }}">
+<button type="submit" class="btn btn-outline-primary">Sign Up</button>
+</form>
 </div>
+
+
+</body>
+
+</html>
+
+
+		
