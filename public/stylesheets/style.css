@@ -46,6 +46,24 @@ max-width: 100%;
     }
 }
 
+
+@media(max-width:576px)
+{
+    .p-block{
+        height:200px;
+        width:300px;
+    }
+}
+
+
+@media (min-width: 576px)
+  {
+ .p-block{
+    height:500px;
+    width:550px;
+ } 
+
+
 #sign{
     padding-top:100px;
 }

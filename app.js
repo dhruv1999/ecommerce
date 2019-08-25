@@ -16,7 +16,13 @@ var validator = require('express-validator')
 var MongoStore = require('connect-mongo')(session)
 var bodyParser = require('body-parser')
 
-mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true })
+mongoose.connect('mongodb://localhost:27017/shopping', { useNewUrlParser: true })
+const connection=mongoose.connection
+connection.once('open',()=>{
+	console.log('Mongodb database connection working.');
+})
+
+
 
 require('./config/passport')
 

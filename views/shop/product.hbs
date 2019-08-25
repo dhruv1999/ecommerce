@@ -1,9 +1,13 @@
 <div class="container">
+    <div id="sign">
 	<div class="card">
 		<div class="row">
+             
 			<div class="col-md-6">
-				<img src="{{ product.imagePath }}" alt="" class="img-thumbnail2">
+              
+				<img src="{{ product.imagePath }}" alt="" class="p-block">
 			</div>
+           
 			<div class="col-md-6">
 				<h2>{{product.title}}</h2>
 				<br>
@@ -12,14 +16,16 @@
 				
 				<h2>{{product.description}}</h2>
 
-			</div>
+			
+            </div>
 			<div class="text-left">
                         <div class="clearfix">
-								<div class="price pull-left">${{ this.price }}</div>
+								<div class="price pull-left">${{ this.price }}
 								<button id="{{ product._id }}" onclick="addProduct(event)">Add
                             to cart
                             
-                        </button>
+                        </button></div>
+                    </div>
                     </div>
 		</div>
 	</div>
