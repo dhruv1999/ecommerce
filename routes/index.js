@@ -11,21 +11,76 @@ const { sendOrderEmail } = require('../models/email')
 const csrfProtection = csrf()
 router.use(csrfProtection)
 
-router.get('/', function(req, res, next) {
-	var successMsg = req.flash('success')[0]
-	Product.find(function(err, docs) {
-		var productChunks = []
-		var chunkSize = 3
-		for (var i = 0; i < docs.length; i += chunkSize) {
+/* GET home page. */
+router.get('/', (req, res, next) => {
+	// Get All Products
+	Product.find((err, docs) => {
+		let productChunks = []
+		let chunkSize = 3
+		for (let i = 0; i < docs.length; i += chunkSize) {
 			productChunks.push(docs.slice(i, i + chunkSize))
 		}
+
+		// Get all hot arrivals
+
+		// Get all Bestsellers
+
 		res.render('shop/index', {
+			page: 'home',
 			title: 'Shopping Cart',
-			products: productChunks,
-			successMsg: successMsg,
-			noMessages: !successMsg
+			csrfToken: req.csrfToken(),
+			products: productChunks
 		})
 	})
+})
+
+// POST Request for Product Search
+// Get all products by matching names
+router.post('/product/search', (req, res, next) => {
+	query = req.body.query
+	// Query Builder need to be updated
+	/*
+		Search for Full Text
+		.find({ $text: { $search: query } })
+	*/
+
+	Product.find({
+		$or: [
+			{ name: { $regex: new RegExp(query), $options: 'i' } },
+			{ category: { $regex: new RegExp(query), $options: 'i' } },
+			{ description: { $regex: new RegExp(query), $options: 'i' } }
+		]
+	})
+		.then((product) => {
+			return res.json({ products: product, success: true })
+		})
+		.catch((err) => {
+			return res.json({ msg: 'Unable to fetch the products', err: true })
+		})
+})
+
+// GET Product Page
+router.get('/product/:id', (req, res, next) => {
+	Product.findOne({ _id: req.params.id })
+		.then((product) => {
+			// Check for the bestseller
+
+			// Check for the new
+
+			// Check for the Original Price
+
+			// Check for the Latest Price
+
+			// Check for the Discount
+
+			// return res.json({ product });
+			res.render('shop/product', {
+				product: product,
+				title: 'Shopping Cart',
+				csrfToken: req.csrfToken()
+			})
+		})
+		.catch((err) => console.log(err))
 })
 
 router.get('/add-to-cart/:id', function(req, res, next) {
@@ -98,40 +153,6 @@ router.get('/products/:category', (req, res, next) => {
 			})
 		})
 		.catch((err) => res.json({ msg: 'There are no products of this category' }))
-})
-
-router.post('/product/search', (req, res, next) => {
-	query = req.body.query
-
-	Product.find({
-		$or: [
-			{ name: { $regex: new RegExp(query), $options: 'i' } },
-			{ category: { $regex: new RegExp(query), $options: 'i' } },
-			{ description: { $regex: new RegExp(query), $options: 'i' } },
-			{ title: { $regex: new RegExp(query), $options: 'i' } }
-		]
-	})
-		.then((product) => {
-			return res.json({ products: product, success: true })
-		})
-		.catch((err) => {
-			return res.json({ msg: 'Unable to fetch the products', err: true })
-		})
-})
-
-router.get('/product', (req, res, next) => {
-	res.render('shop/product')
-})
-
-router.get('/product/:id', (req, res, next) => {
-	Product.findOne({ _id: req.params.id })
-		.then((product) => {
-			res.render('shop/product', {
-				product: product,
-				title: 'Shopping Cart'
-			})
-		})
-		.catch((err) => console.log(err))
 })
 
 router.post('/add-to-cart', (req, res, next) => {
