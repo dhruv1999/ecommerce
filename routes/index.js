@@ -48,7 +48,8 @@ router.post('/product/search', (req, res, next) => {
 		$or: [
 			{ name: { $regex: new RegExp(query), $options: 'i' } },
 			{ category: { $regex: new RegExp(query), $options: 'i' } },
-			{ description: { $regex: new RegExp(query), $options: 'i' } }
+			{ description: { $regex: new RegExp(query), $options: 'i' } },
+			{ title: { $regex: new RegExp(query), $options: 'i' } }
 		]
 	})
 		.then((product) => {

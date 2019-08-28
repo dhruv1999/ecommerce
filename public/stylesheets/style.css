@@ -160,3 +160,13 @@ form {
 	margin-right:40px;
 }
 
+#result {
+	position: absolute;
+	width: 91%;
+	max-width: 300px;
+	cursor: pointer;
+	overflow-y: auto;
+	max-height: 500px;
+	box-sizing: border-box;
+	z-index: 1001;
+}
