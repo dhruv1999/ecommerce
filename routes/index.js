@@ -215,8 +215,9 @@ router.get('/checkout', isLoggedIn, (req, res, next) => {
 router.post('/checkout-pay', isLoggedIn, (req, res, next) => {
 	// Insta Mojo Intialization
 	Insta.setKeys(
-		'9559d80415eedaaa7a775053c16ec7aa',
-		'933fb8b4c1d825beb4899daa09f593ea'
+		process.env.API_KEY,
+		process.env.AUTH_KEY
+		
 	)
 	// Initialize Payment Data
 	let data = new Insta.PaymentData()

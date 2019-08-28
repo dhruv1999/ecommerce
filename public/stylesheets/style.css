@@ -159,3 +159,8 @@ form {
 .online{
 	margin-right:40px;
 }
+
+#nav1{
+	position: sticky;
+
+}
