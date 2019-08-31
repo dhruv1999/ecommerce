@@ -3,21 +3,14 @@
 <html>
 
 	<head>
-		
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<link rel='stylesheet' href='/stylesheets/signup.css' />
     
 	</head>
 
-<body>
-
-	
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
-
-<body>
-
-<div class="box">
+<!--<div class="box">
     <br><h1>SIGN-UP</h1><br>
 	{{#if hasErrors}}
 			<div class="alert alert-danger">
@@ -26,7 +19,7 @@
 					{{/each}}
 			</div>
 		{{/if}}
-<form action="/user/signup" method="post">    
+		 <form action="/user/signup" method="post">    
 <i class="fa fa-user icon" aria-hidden="true"></i>
   <input type="text" id="name" name="name" placeholder=" Enter your name"><br>
 <i class="fa fa-phone icon" aria-hidden="true"></i>
@@ -38,11 +31,45 @@
 <input type="hidden" name="_csrf" value="{{ csrfToken }}">
 <button type="submit" class="btn btn-outline-primary">Sign Up</button>
 </form>
-</div>
+</div>-->
+<body >
+
+<div class="main-w3layouts wrapper ">
+	<legend><h1 id="heading">SIGN-UP</h1></legend><br>
+	{{#if hasErrors}}
+			<div class="alert alert-danger">
+				{{# each messages }}
+					<p>{{this}}</p>
+					{{/each}}
+			</div>
+		{{/if}}
+		<div class="main-agileinfo ">
+			<div class="agileits-top shadow_form">
+				<form action="/user/signup" method="post">
+					<input class="text" type="text" name="name" id="name" placeholder="Enter your name" >
+					<input class="text" type="text" name="mobie" id="mobile" placeholder="Enter your mobile" >
+					
+					<input class="text email" type="email" name="email" id="email" placeholder="Enter your email">
+					<input class="text" type="password" name="password" id="password" placeholder="Enter your password" >
+					<input type="hidden" name="_csrf" value="{{ csrfToken }}">
+					<div class="wthree-text">
+						<label class="anim">
+							<input type="checkbox" class="checkbox" required="">
+							<span>I Agree To The Terms & Conditions</span>
+						</label>
+						<div class="clear"> </div>
+					</div>
+
+					<input type="submit" value="SIGNUP">
+				</form>
+				<p id="bottomline">Don't have an Account? <a href="signin.hbs"> Login Now!</a></p>
+			</div>
+		</div>
+		
+	</div>
 
 
 </body>
-
 </html>
 
 
