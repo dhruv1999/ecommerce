@@ -41,7 +41,7 @@ body{
         width:45px;
     }
      button[type="submit"]{
-          background:green;
+          
           cursor: pointer;
           width:150px;
           height:35px;
