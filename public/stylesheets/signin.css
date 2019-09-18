@@ -36,6 +36,14 @@ input[type="submit"]:hover {
   background: black;
 }
 
+
+.shadow_form{
+  background: rgba(0, 0, 0, 0.1)
+  
+  
+}
+
+
   .spacing{
 
 margin-top: 40%;
