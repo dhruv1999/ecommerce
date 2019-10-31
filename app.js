@@ -16,8 +16,8 @@ var validator = require('express-validator')
 var MongoStore = require('connect-mongo')(session)
 var bodyParser = require('body-parser')
 
-//mongoose.connect('mongodb://localhost:27017/shopping', { useNewUrlParser: true })
-mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true })
+mongoose.connect('mongodb://localhost:27017/shopping', { useNewUrlParser: true })
+//mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true })
 
 
 
