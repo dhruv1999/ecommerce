@@ -5,7 +5,7 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 const sendWelcomeEmail = (email, name) => {
 	sgMail.send({
 		to: email,
-		from: 'dhruvparmar160@gmail.com',
+		from: 'lifestyle19754@gmail.com',
 		subject: 'Thanks for joining in!',
 		text: `${name}, Welcome to the LifeStyle Store . Let me know how you get along with our website.This website is created by Dhruv, Sahil and Aashutosh`
 	})
@@ -14,7 +14,7 @@ const sendWelcomeEmail = (email, name) => {
 const sendCancelEmail = (email) => {
 	sgMail.send({
 		to: email,
-		from: 'dhruvparmar160@gmail.com',
+		from: 'lifestyle19754@gmail.com',
 		subject: 'Thanks for joining in!',
 		text: `${name}, GoodBye  See you soon`
 	})
@@ -23,7 +23,7 @@ const sendCancelEmail = (email) => {
 const sendOrderEmail = (name, ordername, quantity, price, email) => {
 	sgMail.send({
 		to: email,
-		from: 'dhruvparmar160@gmail.com',
+		from: 'lifestyle19754@gmail.com',
 		subject: 'Your order is successfully placed.',
 		text: `${name},your order for ${ordername}, Quantity:${quantity} for Price:Rs ${price} is successfully placed.`
 	})
