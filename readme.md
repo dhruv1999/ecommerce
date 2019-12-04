@@ -3,10 +3,10 @@
 Foobar is a Python library for dealing with word pluralization.
 
 Screensoots
-![image](https://i.imgur.com/DuCZvKY.png)
-![image](https://i.imgur.com/SdpBleL.png)
+![image](https://i.imgur.com/2SIxyeh.png)
+![image](https://i.imgur.com/NjES5Cj.png)
 
-![image](https://i.imgur.com/eWHAzhx.png)
+![image](https://i.imgur.com/VPUfO83.png)
 
 ## Installation
 
